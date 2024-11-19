@@ -31,11 +31,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-node-webkit-builder');
 
   var jsFilesForDistributing = [
-    'bower_components/jquery/jquery.js',
+    'bower_components/jquery/dist/jquery.js',
     'bower_components/bootstrap/js/button.js',
     'bower_components/jquery.auto-grow/src/jquery.auto-grow.js',
     'bower_components/regex-colorizer/regex-colorizer.js',
-    'bower_components/zeroclipboard/ZeroClipboard.js',
+    'bower_components/clipboard/dist/clipboard.js',
     'js/escape.js',
     'js/pattern.js',
     'js/haystack.js',
@@ -186,12 +186,7 @@ module.exports = function(grunt) {
               '!**/*.psd', '!img/*.icns'
             ],
             dest: 'releases/web/'
-          },
-          {
-            expand: true, nonull: true, flatten: true,
-            src: 'bower_components/zeroclipboard/ZeroClipboard.swf',
-            dest: 'releases/web/flash/'
-          },
+          }
         ]
       },
       desktop: {

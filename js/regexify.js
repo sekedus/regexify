@@ -152,21 +152,10 @@
     });
 
     if( envirement === 'browser' ) {
-      // ZeroClipboard install
-      ZeroClipboard.config({
-        /* only for DEBUG */
-        moviePath: 'bower_components/zeroclipboard/ZeroClipboard.swf',
-        /* end for DEBUG */
-        /* only for PRODUCTION
-        moviePath: 'flash/ZeroClipboard.swf',
-        end for PRODUCTION */
-        activeClass: 'active',
-        hoverClass: 'hover'
-      });
-
-      var clip = new ZeroClipboard($copy);
-      clip.on('dataRequested', function(client, args) {
-        clip.setText('/' + getRegexString() + '/' + getFlagsString());
+      var clip = new ClipboardJS($copy.selector, {
+        text: function(trigger) {
+          return '/' + getRegexString() + '/' + getFlagsString();
+        }
       });
 
       // Saveing the current state
