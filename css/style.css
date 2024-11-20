@@ -1,5 +1,5 @@
 body {
-  margin: 0 30px;
+  margin: 30px;
   background-color: #eceff1;
 }
 
@@ -7,15 +7,54 @@ section {
   margin-top: 20px;
 }
 
+code {
+  color: inherit;
+  background-color: rgba(129, 139, 152, .17);
+}
+
+
+/* flexbox (without flexbox) */
+.fwrap {
+  display: table;
+}
+
+.fwrap .fw-item {
+  display: table-cell;
+}
+
+.ai-center {
+  vertical-align: middle;
+}
+
+
 h1 .source {
   float: right;
   font-size: 14px;
   line-height: 36px;
 }
 
-h1 .source a {
+a.link-text {
+  color: inherit;
+}
+
+a.link-underline {
+  text-decoration: underline;
+}
+
+a.link-u-none {
   text-decoration: none;
-  color: initial;
+}
+
+.d-block {
+  display: block;
+}
+
+.thead-middle th {
+  vertical-align: middle !important;
+}
+
+.full, .w100 {
+  width: 100%;
 }
 
 #pattern {
@@ -103,6 +142,18 @@ pre.auto-growing-editor {
   text-align: left;
 }
 
+#back-to {
+  position: fixed;
+  right: 30px;
+  bottom: 0;
+}
+
+#back-to .btn {
+  border-radius: 0;
+  float: left;
+}
+
+
 /* based on regex-colorizer/thems/regexpal.css */
 b, i, u {
   font-weight: normal;
@@ -132,16 +183,29 @@ b.err { background: #ff4300; }
 
 @media (max-width: 480px) {
   body {
-    margin: 0 10px;
+    margin: 25px 10px;
   }
 
-  .page-header {
-    margin: 20px 0 10px;
+  table code {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .regexify .page-header {
+    padding: 0;
+    margin: 20px 0 0;
     text-align: center;
   }
+
   h1 {
     font-size: 22px;
   }
+
   h1 small {
     display: block;
   }

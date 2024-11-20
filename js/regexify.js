@@ -96,6 +96,16 @@
     setHaystackString(localStorage.haystack);
   };
 
+  var headerClasses = function() {
+    if ($(window).width() <= 480) {
+      $('.regexify .page-header').removeClass('fwrap text-justify');
+      $('.regexify .header-right').removeClass('text-right');
+    } else {
+      $('.regexify .page-header').addClass('fwrap text-justify');
+      $('.regexify .header-right').addClass('text-right');
+    }
+  }
+
 
   $(function() {
     // warm up the cache
@@ -186,6 +196,17 @@
       updateRegex();
 
       $haystack.trigger('input');
+    });
+
+    headerClasses();
+    $(window).on('resize', function() {
+      headerClasses();
+    });
+
+    $('#back-to').on('click', '.to-top, .to-bottom', function() {
+      $(this).hasClass('to-top') 
+          ? document.body.scrollIntoView() 
+          : window.scrollTo(0, document.body.scrollHeight);
     });
   });
 })(window);

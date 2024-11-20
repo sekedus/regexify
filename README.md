@@ -6,7 +6,7 @@ Live JavaScript regex tester
 
 ## Install dependencies
 
-Use the [gh-pages](https://github.com/loonkwil/regexify/tree/gh-pages) branch
+Use the [gh-pages](https://github.com/sekedus/regexify/tree/gh-pages) branch
 if you don't want to install anything.
 
 Requirements: [NodeJs](http://nodejs.org), [Bower](http://bower.io)

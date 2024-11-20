@@ -45,11 +45,13 @@ module.exports = function(grunt) {
 
   var cssFilesForDistributing = [
     'bower_components/bootstrap/dist/css/bootstrap.css',
-    'bower_components/jquery.auto-grow/src/auto-grow.css',
-    'css/style.css'
+    'bower_components/jquery.auto-grow/src/auto-grow.css'
   ];
 
-  var htmlFilesForDistributing = ['index.html'];
+  var htmlFilesForDistributing = [
+    'cheat-sheet.html',
+    'index.html'
+  ];
 
 
   grunt.initConfig({
@@ -121,21 +123,33 @@ module.exports = function(grunt) {
       web: {
         files: {
           'releases/web/css/main.min.css': htmlFilesForDistributing
+        },
+        options: {
+          ignore: ['.text-justify', '.text-right']
         }
       },
       desktop: {
         files: {
           'releases/desktop/css/main.min.css': htmlFilesForDistributing
+        },
+        options: {
+          ignore: ['.text-justify', '.text-right']
         }
       }
     },
     cssmin: {
       web: {
-        src: 'releases/web/css/main.min.css',
+        src: [
+          'releases/web/css/main.min.css',
+          'css/style.css'
+        ],
         dest: 'releases/web/css/main.min.css'
       },
       desktop: {
-        src: 'releases/desktop/css/main.min.css',
+        src: [
+          'releases/desktop/css/main.min.css',
+          'css/style.css'
+        ],
         dest: 'releases/desktop/css/main.min.css'
       },
       options: { keepSpecialComments: 0 }
@@ -213,7 +227,7 @@ module.exports = function(grunt) {
             'js/**/*.js', '!js/**/*.min.js'
           ] },
           { expand: true, nonull: true, cwd: 'releases/web/', filter: 'isFile',
-            src: [ '*', '!index.html' ]
+            src: [ '*', '!index.html', '!cheat-sheet.html' ]
           }
         ]
       },
@@ -227,7 +241,7 @@ module.exports = function(grunt) {
             'img/favicon.ico', 'img/logo.png'
           ] },
           { expand: true, nonull: true, cwd: 'releases/desktop/', filter: 'isFile',
-            src: [ '*', '!index.html', '!package.json' ]
+            src: [ '*', '!index.html', '!cheat-sheet.html', '!package.json' ]
           }
         ]
       },
